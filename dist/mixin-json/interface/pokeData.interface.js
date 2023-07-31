@@ -1,0 +1,1 @@
+//# sourceMappingURL=pokeData.interface.js.map
