@@ -1,12 +1,12 @@
-import { Controller, Get, Param } from '@nestjs/common';
-import axios from 'axios';
+import { Controller, Get, Param } from "@nestjs/common";
+import axios from "axios";
 
-@Controller('univ')
+@Controller("univ")
 export class UnivController {
-  @Get(':limit')
-  async getData(@Param('limit') limit: string): Promise<any> {
+  @Get(":limit")
+  async getData(@Param("limit") limit: string): Promise<any> {
     const resUnivHipolabs = await axios.get(
-      `http://universities.hipolabs.com/search?limit=${limit}`,
+      `http://universities.hipolabs.com/search?limit=${limit}`
     );
 
     const UnivData = resUnivHipolabs.data;
@@ -14,93 +14,93 @@ export class UnivController {
 
     for (const univ of UnivData) {
       const url = univ.domains[0];
-      const imgWeb = univ.web_pages[0].split(',/');
+      const imgWeb = univ.web_pages[0].split(",/");
 
-      const imageLink = `https://logo.clearbit.com/${imgWeb}?size=200&format=png`;
+      const imageLink = `https://logo.clearbit.com/${imgWeb}?size=50&format=png`;
 
       const words = [
-        'Lorem',
-        'ipsum',
-        'dolor',
-        'sit',
-        'amet',
-        'consectetur',
-        'adipiscing',
-        'elit',
-        'sed',
-        'do',
-        'eiusmod',
-        'tempor',
-        'incididunt',
-        'ut',
-        'labore',
-        'et',
-        'dolore',
-        'magna',
-        'aliqua',
-        'Ut',
-        'enim',
-        'ad',
-        'minim',
-        'veniam',
-        'quis',
-        'nostrud',
-        'exercitation',
-        'ullamco',
-        'laboris',
-        'nisi',
-        'ut',
-        'aliquip',
-        'ex',
-        'ea',
-        'commodo',
-        'consequat',
-        'Duis',
-        'aute',
-        'irure',
-        'dolor',
-        'in',
-        'reprehenderit',
-        'in',
-        'voluptate',
-        'velit',
-        'esse',
-        'cillum',
-        'dolore',
-        'eu',
-        'fugiat',
-        'nulla',
-        'pariatur',
-        'Excepteur',
-        'sint',
-        'occaecat',
-        'cupidatat',
-        'non',
-        'proident',
-        'sunt',
-        'in',
-        'culpa',
-        'qui',
-        'officia',
-        'deserunt',
-        'mollit',
-        'anim',
-        'id',
-        'est',
-        'laborum',
+        "Lorem",
+        "ipsum",
+        "dolor",
+        "sit",
+        "amet",
+        "consectetur",
+        "adipiscing",
+        "elit",
+        "sed",
+        "do",
+        "eiusmod",
+        "tempor",
+        "incididunt",
+        "ut",
+        "labore",
+        "et",
+        "dolore",
+        "magna",
+        "aliqua",
+        "Ut",
+        "enim",
+        "ad",
+        "minim",
+        "veniam",
+        "quis",
+        "nostrud",
+        "exercitation",
+        "ullamco",
+        "laboris",
+        "nisi",
+        "ut",
+        "aliquip",
+        "ex",
+        "ea",
+        "commodo",
+        "consequat",
+        "Duis",
+        "aute",
+        "irure",
+        "dolor",
+        "in",
+        "reprehenderit",
+        "in",
+        "voluptate",
+        "velit",
+        "esse",
+        "cillum",
+        "dolore",
+        "eu",
+        "fugiat",
+        "nulla",
+        "pariatur",
+        "Excepteur",
+        "sint",
+        "occaecat",
+        "cupidatat",
+        "non",
+        "proident",
+        "sunt",
+        "in",
+        "culpa",
+        "qui",
+        "officia",
+        "deserunt",
+        "mollit",
+        "anim",
+        "id",
+        "est",
+        "laborum",
       ];
 
       const minWord = 50;
       const maxWord = 50;
 
       const paragraphLength = Math.floor(
-        Math.random() * (maxWord - minWord + 1) + minWord,
+        Math.random() * (maxWord - minWord + 1) + minWord
       );
-      let paragrapgh = '';
+      let paragrapgh = "";
       for (let p = 0; p < paragraphLength; p++) {
         const randomIdx = Math.floor(Math.random() * words.length);
         const word = words[randomIdx];
-        paragrapgh += word + ' ';
+        paragrapgh += word + " ";
       }
       paragrapgh = paragrapgh.trim();
 
